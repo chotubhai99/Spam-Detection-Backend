@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spam Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #74b9ff, #0984e3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    /* Container */
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+      color: #333;
+      animation: slideIn 0.8s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Heading */
+    h1 {
+      font-size: 2.2rem;
+      color: #0984e3;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Form Section */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 16px;
+      background-color: #f9f9f9;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #0984e3;
+      outline: none;
+      box-shadow: 0 0 8px rgba(9, 132, 227, 0.3);
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    /* Buttons */
+    button {
+      background-color: #0984e3;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0652dd;
+    }
+
+    a button {
+      background-color: #636e72;
+      margin-top: 10px;
+    }
+
+    a button:hover {
+      background-color: #2d3436;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 500px) {
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔎 Spam Detection System</h1>
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+      
+      <!-- Image Upload Section -->
+      <label for="image">📸 Upload Image for OCR (Optional):</label>
+      <input type="file" name="image" id="image" accept="image/*">
+
+      <!-- Text Input Section -->
+      <label for="text">📝 Enter Text for Spam Detection:</label>
+      <textarea name="text" id="text" rows="4" placeholder="Type your text here..."></textarea>
+
+      <!-- Submit Button -->
+      <button type="submit">🚀 Predict Now</button>
+    </form>
+
+    <!-- Back to Main Page Button -->
+    <a href="https://spamdetection999.netlify.app/">
+      <button>⬅ Back to Main Page</button>
+    </a>
+  </div>
+</body>
+</html>
